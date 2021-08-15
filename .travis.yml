@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 12
+
+script:
+  - docker-compose -f docker-compose.yaml build --parallel
+  - docker tag udagram-frontend systane/udagram-frontend:latest
+  - docker tag udagram-frontend systane/udagram-api-feed:latest
+  - docker tag udagram-frontend systane/udagram-api-user:latest
+  - docker tag udagram-frontend systane/reverseproxy:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push systane/udagram-frontend
+  - docker push systane/udagram-api-feed
+  - docker push systane/udagram-api-user
+  - docker push systane/reverseproxy
