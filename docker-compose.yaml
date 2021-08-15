@@ -5,8 +5,8 @@ services:
       context: ./udagram-reverseproxy
     image: reverseproxy
     depends_on:
-      - backend_feed
-      - backend_user
+      - backend-feed
+      - backend-user
       - frontend
     ports:
       - "8080:8080"
@@ -16,7 +16,7 @@ services:
     image: udagram-frontend
     ports:
       - "8100:80"
-  backend_user:
+  backend-user:
     env_file:
       - variables.env
     build:
@@ -24,7 +24,7 @@ services:
     image: udagram-api-user
     # ports:
     #   - "8081:8081"
-  backend_feed:
+  backend-feed:
     env_file:
       - variables.env
     build:
