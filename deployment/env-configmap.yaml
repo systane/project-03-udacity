@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+    POSTGRES_HOST: udagram-dev.cabwr3wptjep.us-east-1.rds.amazonaws.com
+    POSTGRES_DB: udagram_dev
+    AWS_BUCKET: udagram-249996657339-dev
+    AWS_REGION: us-east-1
+    AWS_PROFILE: udacity_projects
+    URL: http://localhost:8100
+kind: ConfigMap
+metadata:
+  name: env-configmap
