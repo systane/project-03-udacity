@@ -3,7 +3,7 @@ node_js:
   - 12
 
 script:
-  - docker-compose -f docker-compose.yaml build --parallel
+  - docker-compose -f docker-compose.yaml build
   - docker tag udagram-frontend systane/udagram-frontend:latest
   - docker tag udagram-frontend systane/udagram-api-feed:latest
   - docker tag udagram-frontend systane/udagram-api-user:latest
